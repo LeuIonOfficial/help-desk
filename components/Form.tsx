@@ -1,43 +1,16 @@
 'use client'
-import { Button, Grid, TextField, styled } from '@mui/material'
-import { useForm } from 'react-hook-form'
-import Input from './Input'
+import { Button, styled } from '@mui/material'
+import { FormProvider, useFormContext } from 'react-hook-form'
 
-const Form = () => {
-    const { handleSubmit, register } = useForm()
-    const onSubmit = (data: Record<string, string>) => console.log(data)
-    return (
-        <StyledForm onSubmit={handleSubmit(onSubmit)}>
-            <Grid
-                container
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            >
-                <Grid item xs={6}>
-                    <Input
-                        name="First Name"
-                        register={register('firstName')}
-                        variant="outlined"
-                    />
-                </Grid>
-                <Grid item xs={6}>
-                    <Input
-                        name="Last Name"
-                        register={register('lastName')}
-                        variant="outlined"
-                    />
-                </Grid>
-                <Footer>
-                    <SubmitButton type="submit" variant="contained">
-                        Submit
-                    </SubmitButton>
-                </Footer>
-            </Grid>
-        </StyledForm>
-    )
-}
+import ApplicationUrl from './FormElements/ApplicationUrl'
+import AuthSecuritySettings from './FormElements/AuthSecuritySettings'
+import EmailSettings from './FormElements/EmailSettings'
+import GoogleSettings from './FormElements/GoogleSettings'
+import LDAPSettings from './FormElements/LDAPSettings'
 
-const Footer = styled('div')({
+import useFormHook from '@/hooks/useFormHook'
+
+const StyledFooter = styled('div')({
     width: '100%',
     display: 'flex',
     flexDirection: 'row-reverse',
@@ -47,10 +20,50 @@ const Footer = styled('div')({
 const StyledForm = styled('form')({
     width: '100%',
     marginTop: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
 })
 
 const SubmitButton = styled(Button)({
-    width: '400px',
+    width: '200px',
 })
+
+const Footer = () => {
+    const { reset } = useFormContext()
+
+    return (
+        <StyledFooter>
+            <SubmitButton type="submit" variant="contained">
+                Submit
+            </SubmitButton>
+            <SubmitButton
+                onClick={() => {
+                    reset()
+                }}
+            >
+                Reset
+            </SubmitButton>
+        </StyledFooter>
+    )
+}
+
+const Form = () => {
+    const { methods, onSubmit } = useFormHook()
+    const { handleSubmit } = methods
+
+    return (
+        <FormProvider {...methods}>
+            <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                <ApplicationUrl />
+                <AuthSecuritySettings />
+                <EmailSettings />
+                <GoogleSettings />
+                <LDAPSettings />
+                <Footer />
+            </StyledForm>
+        </FormProvider>
+    )
+}
 
 export default Form
