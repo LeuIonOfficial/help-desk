@@ -1,2 +1,2 @@
-export * from './OutlinedInput'
-export * from './Checkbox'
+export { default as OutlinedInput } from './OutlinedInput'
+export { default as Checkbox } from './Checkbox'
