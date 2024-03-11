@@ -9,22 +9,28 @@ const OutlinedInput = ({
   fullWidth = false,
   gridRow,
   size = 'small',
-  register,
   type = 'text',
+  name = '',
   onChange,
-}: PropsType) => (
-  <S.FormControl fullWidth={fullWidth} gridRow={gridRow}>
-    {label && <FormLabel>{label}</FormLabel>}
-    <S.OutlinedInput
-      onChange={onChange}
-      placeholder={placeholder}
-      size={size}
-      error={!!errorMsg}
-      type={type}
-      {...register}
-    />
-    {errorMsg && <S.ErrorMsg>{errorMsg}</S.ErrorMsg>}
-  </S.FormControl>
-)
+  onBlur,
+  ...props
+}: PropsType) => {
+  return (
+    <S.FormControl fullWidth={fullWidth} gridRow={gridRow}>
+      {label && <FormLabel>{label}</FormLabel>}
+      <S.OutlinedInput
+        placeholder={placeholder}
+        size={size}
+        error={!!errorMsg}
+        type={type}
+        name={name}
+        onChange={onChange}
+        onBlur={onBlur}
+        {...props}
+      />
+      {errorMsg && <S.ErrorMsg>{errorMsg}</S.ErrorMsg>}
+    </S.FormControl>
+  )
+}
 
 export default OutlinedInput

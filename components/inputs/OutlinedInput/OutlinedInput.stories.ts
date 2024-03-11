@@ -9,6 +9,17 @@ const meta: Meta<PropsType> = {
   component: TextField,
   args: {
     onChange: action('onchange'),
+    onBlur: action('onblur'),
+  },
+  argTypes: {
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium'],
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['text', 'password', 'email', 'number'],
+    },
   },
 }
 
@@ -17,9 +28,37 @@ type Story = StoryObj<PropsType>
 
 export const Default: Story = {
   args: {
-    label: 'Label',
-    fullWidth: false,
+    label: 'Default Input',
+    name: 'defaultInput',
     type: 'text',
+    size: 'medium',
+  },
+}
+
+export const WithErrorMessage: Story = {
+  args: {
+    label: 'Error Input',
+    name: 'errorInput',
+    errorMsg: 'Error message goes here',
+    type: 'text',
+    size: 'medium',
+  },
+}
+
+export const PasswordInput: Story = {
+  args: {
+    label: 'Password',
+    name: 'password',
+    type: 'password',
+    size: 'medium',
+  },
+}
+
+export const EmailInputSmall: Story = {
+  args: {
+    label: 'Email',
+    name: 'email',
+    type: 'email',
     size: 'small',
   },
 }
