@@ -3,6 +3,7 @@
         "next/core-web-vitals",
         "next",
         "prettier",
+        "plugin:storybook/recommended",
         "plugin:storybook/recommended"
     ]
 }
