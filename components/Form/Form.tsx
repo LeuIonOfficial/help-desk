@@ -3,7 +3,7 @@ import useFormHook from '@/hooks/useFormHook'
 import { Grid } from '../layout/Grid'
 
 import * as S from './styled'
-import TextField from '@/components/inputs/TextField'
+import OutlinedInput from '@/components/inputs/OutlinedInput'
 
 const Form = () => {
   const { methods, onSubmit } = useFormHook()
@@ -17,43 +17,38 @@ const Form = () => {
         gridRowGap="10px"
         columnGap="10px"
       >
-        <TextField
+        <OutlinedInput
           gridRow="1"
           label="Application URL"
-          inputId=""
           fullWidth
           register={register('applicationUrl')}
-        ></TextField>
+        ></OutlinedInput>
         <S.Heading gridRow="2">Authentication Security Settings</S.Heading>
-        <TextField
+        <OutlinedInput
           gridRow="3"
           label="JWT Secret TTL:"
-          inputId=""
           fullWidth
           register={register('JWT_SECRET_TTL')}
-        ></TextField>
-        <TextField
+        ></OutlinedInput>
+        <OutlinedInput
           gridRow="3"
           label="Refresh Secret TTL:"
-          inputId=""
           fullWidth
           register={register('REFRESH_SECRET_TTL')}
-        ></TextField>
+        ></OutlinedInput>
         <S.Heading gridRow="4">Email Settings:</S.Heading>
-        <TextField
+        <OutlinedInput
           gridRow="5"
           label="Email host:"
-          inputId=""
           fullWidth
           register={register('EMAIL_HOST')}
-        ></TextField>
-        <TextField
+        ></OutlinedInput>
+        <OutlinedInput
           gridRow="5"
           label="Email Port:"
-          inputId=""
           fullWidth
           register={register('EMAIL_PORT')}
-        ></TextField>
+        ></OutlinedInput>
       </Grid>
     </S.Form>
   )
