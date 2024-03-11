@@ -1,6 +1,6 @@
 export type StyledWrapperType = {
-    'grid-template-columns': string
-    'grid-row-gap': string
-    'column-gap': string
+    gridTemplateColumns: string
+    gridRowGap: string
+    columnGap: string
     padding: string
 }

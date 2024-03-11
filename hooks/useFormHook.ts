@@ -17,7 +17,7 @@ const useFormHook = () => {
     const methods = useForm({
         defaultValues: {
             ...BackEndData,
-            GOOGLE_OAUTH: !!(BackEndData.GOOGLE_OAUTH === 'true'),
+            GOOGLE_OAUTH: (BackEndData.GOOGLE_OAUTH === 'true'),
             LDAP_SETTINGS: !(BackEndData.LDAP_SETTINGS === 'false'),
         },
     })

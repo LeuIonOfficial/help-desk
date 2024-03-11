@@ -1,10 +1,10 @@
 import { BaseTextFieldProps } from '@mui/material'
 
 export interface PropsType extends BaseTextFieldProps, StyledProps {
-    label: string
+    label?: string
     register?: {}
-    helperText: string
-    inputId: string
+    helperText?: string
+    inputId?: string
 }
 
 export interface StyledProps {

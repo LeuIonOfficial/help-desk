@@ -5,9 +5,9 @@ const Wrapper = styled.div((props: StyledWrapperType) => ({
   width: '100%',
   display: 'grid',
   padding: props.padding,
-  'grid-template-columns': props['grid-template-columns'],
-  'grid-row-gap': props['grid-row-gap'],
-  'column-gap': props['column-gap'],
+  'grid-template-columns': props.gridTemplateColumns,
+  'grid-row-gap': props.gridRowGap,
+  'column-gap': props.columnGap,
 }))
 
 export default Wrapper
