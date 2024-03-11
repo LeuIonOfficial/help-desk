@@ -1,9 +1,9 @@
 'use client'
 import useFormHook from '@/hooks/useFormHook'
-import { Grid } from '../layout/Grid'
 
 import * as S from './styled'
 import OutlinedInput from '@/components/inputs/OutlinedInput'
+import { Grid } from '@/components/layout'
 
 const Form = () => {
   const { methods, onSubmit } = useFormHook()

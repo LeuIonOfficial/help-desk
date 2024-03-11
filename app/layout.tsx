@@ -1,18 +1,17 @@
-import type { Metadata } from 'next'
 import Header from '@/components/Header/Header'
 import { ReactNode } from 'react'
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: ReactNode
+  children: ReactNode
 }>) {
-    return (
-        <html lang="en">
-            <body>
-                <Header />
-                {children}
-            </body>
-        </html>
-    )
+  return (
+    <html lang="en">
+      <body>
+        <Header />
+        {children}
+      </body>
+    </html>
+  )
 }
