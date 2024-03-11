@@ -1,9 +1,8 @@
 import {
   FormControl as MuiFormControl,
-  TextField as MuiTextField,
   FormHelperText as MuiHelperText,
-  textFieldClasses,
-  OutlinedInput,
+  outlinedInputClasses,
+  OutlinedInput as MuiOutlinedInput,
 } from '@mui/material'
 import styled from '@emotion/styled'
 import { StyledProps } from './types'
@@ -14,6 +13,12 @@ export const FormControl = styled(MuiFormControl)(
   })
 )
 
-export const TextField = styled(OutlinedInput)``
+export const OutlinedInput = styled(MuiOutlinedInput)(
+  () => `
+  &.${outlinedInputClasses.root} {
+    background-color: white;
+  }
+`
+)
 
 export const ErrorMsg = styled(MuiHelperText)((props: StyledProps) => ({}))
