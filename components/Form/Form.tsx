@@ -21,33 +21,43 @@ const Form = () => {
           gridRow="1"
           label="Application URL"
           fullWidth
-          register={register('applicationUrl')}
+          size="small"
+          type="text"
+          {...register('applicationUrl')}
         ></OutlinedInput>
         <S.Heading gridRow="2">Authentication Security Settings</S.Heading>
         <OutlinedInput
           gridRow="3"
           label="JWT Secret TTL:"
           fullWidth
-          register={register('JWT_SECRET_TTL')}
+          size="small"
+          type="text"
+          {...register('JWT_SECRET_TTL')}
         ></OutlinedInput>
         <OutlinedInput
           gridRow="3"
           label="Refresh Secret TTL:"
           fullWidth
-          register={register('REFRESH_SECRET_TTL')}
+          size="small"
+          type="text"
+          {...register('REFRESH_SECRET_TTL')}
         ></OutlinedInput>
         <S.Heading gridRow="4">Email Settings:</S.Heading>
         <OutlinedInput
           gridRow="5"
           label="Email host:"
           fullWidth
-          register={register('EMAIL_HOST')}
+          size="small"
+          type="text"
+          {...register('EMAIL_HOST')}
         ></OutlinedInput>
         <OutlinedInput
           gridRow="5"
           label="Email Port:"
           fullWidth
-          register={register('EMAIL_PORT')}
+          size="small"
+          type="number"
+          {...register('EMAIL_PORT')}
         ></OutlinedInput>
       </Grid>
     </S.Form>
