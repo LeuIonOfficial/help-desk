@@ -62,3 +62,12 @@ export const EmailInputSmall: Story = {
     size: 'small',
   },
 }
+
+export const NumberInputSmall: Story = {
+  args: {
+    label: 'Number',
+    name: 'number',
+    type: 'number',
+    size: 'small',
+  },
+}
