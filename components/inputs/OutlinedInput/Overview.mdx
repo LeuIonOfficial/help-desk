@@ -1,0 +1,42 @@
+import { Canvas, Meta, ArgTypes, Controls } from '@storybook/blocks'
+import * as OutlinedInputStories from './OutlinedInput.stories'
+import { OutlinedInput } from './OutlinedInput'
+
+<Meta of={OutlinedInputStories} />
+## OutlinedInput
+
+- [Usage](#usage)
+- [Props](#props)
+- [Overview](#overview)
+
+## Usage
+
+```js
+import { OutlinedInput } from '@components/inputs/OutlinedInput'
+```
+
+## Overview
+
+<Canvas of={OutlinedInputStories.Default} sourceState="none" />
+```jsx
+<OutlinedInput label="Default" name="default" size="small" type="text">
+```
+
+## Props
+
+[//]: # '<ArgTypes story="Default" />'
+
+<Controls of={OutlinedInputStories.Default} />
+## Variants
+
+### Error
+
+<Canvas of={OutlinedInputStories.WithErrorMessage} sourceState="none" />
+
+```jsx
+<OutlinedInput
+  label="Error Input"
+  errorMsg="Error message goes here"
+  type="text"
+/>
+```

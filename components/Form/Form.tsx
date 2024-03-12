@@ -3,7 +3,7 @@ import useFormHook from '@/hooks/useFormHook'
 
 import * as S from './styled'
 import { Grid } from '@/components/layout'
-import { OutlinedInput } from '@/components/inputs'
+import { OutlinedInput } from '@/components/inputs/index'
 
 const Form = () => {
   const { methods, onSubmit } = useFormHook()

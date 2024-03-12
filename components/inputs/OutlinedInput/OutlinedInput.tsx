@@ -2,7 +2,7 @@ import { FormLabel } from '@mui/material'
 import { PropsType } from './types'
 import * as S from './styled'
 
-const OutlinedInput = ({
+export const OutlinedInput = ({
   label,
   errorMsg,
   placeholder,
@@ -32,5 +32,3 @@ const OutlinedInput = ({
     </S.FormControl>
   )
 }
-
-export default OutlinedInput

@@ -1,14 +1,14 @@
-import { FormControlLabel, Checkbox } from '@mui/material'
-import { FC } from 'react'
+import { FormControlLabel, Checkbox as MuiCheckbox } from '@mui/material'
+import { forwardRef } from 'react'
 import { PropsType } from './types'
 
-const CustomCheckbox: FC<PropsType> = ({ label = '', register, name }) => (
+export const Checkbox = forwardRef(({ label, name }: PropsType, ref) => (
   <FormControlLabel
-    control={<Checkbox />}
+    control={<MuiCheckbox />}
     label={label}
     name={name}
-    {...register}
+    ref={ref}
   />
-)
+))
 
-export default CustomCheckbox
+Checkbox.displayName = 'Checkbox'

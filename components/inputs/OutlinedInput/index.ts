@@ -1,1 +1,1 @@
-export { default } from './OutlinedInput'
+export { OutlinedInput } from './OutlinedInput'

@@ -1,1 +1,1 @@
-export { default } from './styled'
+export { Grid } from './styled'

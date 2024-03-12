@@ -1,12 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
-import TextField from './OutlinedInput'
-import type { PropsType } from './types'
 
 import { action } from '@storybook/addon-actions'
+import { OutlinedInput } from '.'
 
-const meta: Meta<PropsType> = {
+const meta: Meta<typeof OutlinedInput> = {
   title: 'Components/Inputs/OutlinedInput',
-  component: TextField,
+  component: OutlinedInput,
   args: {
     onChange: action('onchange'),
     onBlur: action('onblur'),
@@ -24,14 +23,14 @@ const meta: Meta<PropsType> = {
 }
 
 export default meta
-type Story = StoryObj<PropsType>
+type Story = StoryObj<typeof OutlinedInput>
 
 export const Default: Story = {
   args: {
     label: 'Default Input',
     name: 'defaultInput',
-    type: 'text',
-    size: 'medium',
+    size: 'small',
+    type: 'text'
   },
 }
 
@@ -40,8 +39,6 @@ export const WithErrorMessage: Story = {
     label: 'Error Input',
     name: 'errorInput',
     errorMsg: 'Error message goes here',
-    type: 'text',
-    size: 'medium',
   },
 }
 
@@ -50,7 +47,6 @@ export const PasswordInput: Story = {
     label: 'Password',
     name: 'password',
     type: 'password',
-    size: 'medium',
   },
 }
 
@@ -59,7 +55,6 @@ export const EmailInputSmall: Story = {
     label: 'Email',
     name: 'email',
     type: 'email',
-    size: 'small',
   },
 }
 
@@ -68,6 +63,5 @@ export const NumberInputSmall: Story = {
     label: 'Number',
     name: 'number',
     type: 'number',
-    size: 'small',
   },
 }
