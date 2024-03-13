@@ -2,65 +2,95 @@
 import useFormHook from '@/hooks/useFormHook'
 
 import * as S from './styled'
-import { Grid } from '@/components/layout'
-import { Button, OutlinedInput } from '@/components'
+import { Button, Checkbox, OutlinedInput } from '@/components'
 
 const Form = () => {
   const { methods, onSubmit } = useFormHook()
-  const { handleSubmit, register } = methods
+  const { handleSubmit, register, watch, reset } = methods
+
+  const watchOAUTH_GOOGLE_ENABLED = watch('OAUTH_GOOGLE_ENABLED')
+  const watchLDAP = watch('LDAP_ENABLED')
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <Grid
-        padding="10px 20px"
-        gridTemplateColumns="repeat(2, 1fr)"
-        gridRowGap="10px"
-        columnGap="10px"
-      >
-        <OutlinedInput
-          gridRow="1"
-          label="Application URL"
-          fullWidth
-          size="small"
-          type="text"
-          {...register('applicationUrl')}
-        ></OutlinedInput>
-        <S.Heading gridRow="2">Authentication Security Settings</S.Heading>
-        <OutlinedInput
-          gridRow="3"
-          label="JWT Secret TTL:"
-          fullWidth
-          size="small"
-          type="text"
-          {...register('JWT_SECRET_TTL')}
-        ></OutlinedInput>
-        <OutlinedInput
-          gridRow="3"
-          label="Refresh Secret TTL:"
-          fullWidth
-          size="small"
-          type="text"
-          {...register('REFRESH_SECRET_TTL')}
-        ></OutlinedInput>
-        <S.Heading gridRow="4">Email Settings:</S.Heading>
-        <OutlinedInput
-          gridRow="5"
-          label="Email host:"
-          fullWidth
-          size="small"
-          type="text"
-          {...register('EMAIL_HOST')}
-        ></OutlinedInput>
-        <OutlinedInput
-          gridRow="5"
-          label="Email Port:"
-          fullWidth
-          size="small"
-          type="number"
-          {...register('EMAIL_PORT')}
-        ></OutlinedInput>
-        <Button>Submit</Button>
-      </Grid>
+      <OutlinedInput
+        label="Application URL"
+        fullWidth
+        {...register('APP_URL')}
+      ></OutlinedInput>
+      <S.Header>Authentication Security Settings</S.Header>
+      <OutlinedInput
+        label="JWT Secret TTL:"
+        fullWidth
+        {...register('JWT_SECRET_TTL')}
+      ></OutlinedInput>
+      <OutlinedInput
+        label="Refresh Secret TTL:"
+        fullWidth
+        {...register('REFRESH_SECRET_TTL')}
+      ></OutlinedInput>
+      <S.Header>Email Settings:</S.Header>
+      <OutlinedInput
+        label="Email host:"
+        fullWidth
+        {...register('EMAIL_HOST')}
+      ></OutlinedInput>
+      <OutlinedInput
+        label="Email Port:"
+        fullWidth
+        type="number"
+        {...register('EMAIL_PORT')}
+      ></OutlinedInput>
+      <S.Header>Google Settings:</S.Header>
+      <S.Header>
+        <Checkbox
+          label="Google Auth Enabled"
+          checked={watchOAUTH_GOOGLE_ENABLED}
+          {...register('OAUTH_GOOGLE_ENABLED')}
+        />
+      </S.Header>
+      <OutlinedInput
+        label="Google Client ID:"
+        fullWidth
+        disabled={!watchOAUTH_GOOGLE_ENABLED}
+        {...register('OAUTH_GOOGLE_CLIENT_ID')}
+      />
+      <OutlinedInput
+        label="OAUTH Google Client Secret"
+        disabled={!watchOAUTH_GOOGLE_ENABLED}
+        {...register('OAUTH_GOOGLE_CLIENT_SECRET')}
+      />
+      <S.Header>LDAP Settings:</S.Header>
+      <S.Header>
+        <Checkbox
+          label="LDAP Enabled"
+          checked={watchLDAP}
+          {...register('LDAP_ENABLED')}
+        />
+      </S.Header>
+      <OutlinedInput
+        label="LDAP URL:"
+        fullWidth
+        disabled={!watchLDAP}
+        {...register('LDAP_URL')}
+      />
+      <OutlinedInput
+        label="LDAP Bind DN:"
+        fullWidth
+        disabled={!watchLDAP}
+        {...register('LDAP_BIND_DN')}
+      />
+      <S.Footer gridColumn="1/3">
+        <Button type="submit">Save Changes</Button>
+        <Button
+          type="button"
+          variant="outlined"
+          color="primary"
+          onClick={() => reset()}
+        >
+          Reset
+        </Button>
+      </S.Footer>
     </S.Form>
   )
 }

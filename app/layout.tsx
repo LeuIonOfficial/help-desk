@@ -1,5 +1,6 @@
 import Header from '@/components/Header/Header'
 import { ReactNode } from 'react'
+import * as S from './styled'
 
 export default function RootLayout({
   children,
@@ -8,10 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <S.Body>
         <Header />
         {children}
-      </body>
+      </S.Body>
     </html>
   )
 }

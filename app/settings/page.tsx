@@ -1,10 +1,10 @@
 import Form from '@/components/Form/Form'
-import { PageLayout } from '@/components/layout'
+import * as S from './styled'
 
 export default function Settings() {
   return (
-    <PageLayout>
+    <S.Wrapper>
       <Form />
-    </PageLayout>
+    </S.Wrapper>
   )
 }

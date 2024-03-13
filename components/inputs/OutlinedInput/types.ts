@@ -27,4 +27,5 @@ export type PropsType = StyledProps & {
     | 'value'
     | 'onChange'
     | 'onBlur'
+    | 'disabled'
   >
