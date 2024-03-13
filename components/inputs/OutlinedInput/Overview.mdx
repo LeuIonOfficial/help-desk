@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes, Controls } from '@storybook/blocks'
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/blocks'
 import * as OutlinedInputStories from './OutlinedInput.stories'
 import { OutlinedInput } from './OutlinedInput'
 
@@ -12,14 +12,16 @@ import { OutlinedInput } from './OutlinedInput'
 ## Usage
 
 ```js
-import { OutlinedInput } from '@components/inputs/OutlinedInput'
+import { OutlinedInput } from '@components'
 ```
 
 ## Overview
 
-<Canvas of={OutlinedInputStories.Default} sourceState="none" />
+<Canvas of={OutlinedInputStories.Variants} sourceState="none" />
 ```jsx
-<OutlinedInput label="Default" name="default" size="small" type="text">
+<OutlinedInput name="requiredProp">
+<OutlinedInput name="requiredProp" label="Input with label">
+<OutlinedInput name="requiredProp" label="Input with label" errorMessage="And error message">
 ```
 
 ## Props
@@ -27,16 +29,3 @@ import { OutlinedInput } from '@components/inputs/OutlinedInput'
 [//]: # '<ArgTypes story="Default" />'
 
 <Controls of={OutlinedInputStories.Default} />
-## Variants
-
-### Error
-
-<Canvas of={OutlinedInputStories.WithErrorMessage} sourceState="none" />
-
-```jsx
-<OutlinedInput
-  label="Error Input"
-  errorMsg="Error message goes here"
-  type="text"
-/>
-```

@@ -3,9 +3,9 @@ import { PropsType } from './types'
 import * as S from './styled'
 
 export const OutlinedInput = ({
-  label,
-  errorMsg,
-  placeholder,
+  label = '',
+  errorMessage = '',
+  placeholder = '',
   fullWidth = false,
   gridRow,
   size = 'small',
@@ -13,7 +13,6 @@ export const OutlinedInput = ({
   name = '',
   onChange,
   onBlur,
-  ...props
 }: PropsType) => {
   return (
     <S.FormControl fullWidth={fullWidth} gridRow={gridRow}>
@@ -21,14 +20,13 @@ export const OutlinedInput = ({
       <S.OutlinedInput
         placeholder={placeholder}
         size={size}
-        error={!!errorMsg}
+        error={!!errorMessage}
         type={type}
         name={name}
         onChange={onChange}
         onBlur={onBlur}
-        {...props}
       />
-      {errorMsg && <S.ErrorMsg>{errorMsg}</S.ErrorMsg>}
+      {errorMessage && <S.ErrorMsg>{errorMessage}</S.ErrorMsg>}
     </S.FormControl>
   )
 }
