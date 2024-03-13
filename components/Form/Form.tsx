@@ -3,7 +3,7 @@ import useFormHook from '@/hooks/useFormHook'
 
 import * as S from './styled'
 import { Grid } from '@/components/layout'
-import { OutlinedInput } from '@/components/inputs/index'
+import { Button, OutlinedInput } from '@/components'
 
 const Form = () => {
   const { methods, onSubmit } = useFormHook()
@@ -59,6 +59,7 @@ const Form = () => {
           type="number"
           {...register('EMAIL_PORT')}
         ></OutlinedInput>
+        <Button>Submit</Button>
       </Grid>
     </S.Form>
   )
