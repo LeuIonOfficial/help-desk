@@ -1,0 +1,30 @@
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
+import * as CheckboxStories from './Checkbox.stories'
+import { Checkbox } from './Checkbox'
+
+<Meta of={CheckboxStories} />
+## Button
+
+- [Usage](#usage)
+- [Props](#props)
+- [Overview](#overview)
+
+## Usage
+
+```js
+import { Checkbox } from '@components'
+```
+
+## Overview
+
+<Canvas>
+  <Story of={CheckboxStories.Default} />
+</Canvas>
+```jsx
+<Checkbox label="Default" />
+```
+
+## Props
+
+<ArgTypes story={CheckboxStories.Default} />
+```
