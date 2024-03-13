@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story, ArgTypes } from '@storybook/blocks'
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks'
 import * as ButtonStories from './Button.stories'
 import { Button } from './Button'
 
@@ -12,36 +12,23 @@ import { Button } from './Button'
 ## Usage
 
 ```js
-import { Button } from '@components/inputs/Button'
+import { Button } from '@components'
 ```
 
 ## Overview
 
 <Canvas>
-  <Story of={ButtonStories.Size} />
+  <Story of={ButtonStories.Default} />
 </Canvas>
 ```jsx
-<Button variant="text">Text</Button>
-<Button variant="contained">Contained</Button>
-<Button variant="outlined">Outlined</Button>
+<Button>Default</Button>
 ```
 
-## Loading
+## Variants
 
 <Canvas>
-  <Story of={ButtonStories.Loading} />
+  <Story of={ButtonStories.Variants} />
 </Canvas>
-```jsx
-<Button variant="text" isLoading loadingIconSize={20}>
-  Text
-</Button>
-<Button variant="contained" isLoading loadingIconSize={20}>
-  Contained
-</Button>
-<Button variant="outlined" isLoading loadingIconSize={20}>
-  Outlined
-</Button>
-```
 
 ## Props
 

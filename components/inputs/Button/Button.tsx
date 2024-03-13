@@ -3,28 +3,25 @@ import { Props } from './types'
 
 export const Button = ({
   variant = 'contained',
-  children,
-  isLoading,
-  loadingIconSize,
-  loadingIconColor = 'inherit',
-  ...props
+  size = 'medium',
+  children = '',
+  isLoading = false,
+  iconSize = 24,
+  iconColor = 'inherit',
+  onClick,
+  type = 'button',
 }: Props) => {
-  if (isLoading) {
-    return (
-      <MuiButton
-        startIcon={
-          <CircularProgress size={loadingIconSize} color={loadingIconColor} />
-        }
-        disabled={true}
-        variant={variant}
-        {...props}
-      >
-        {children}
-      </MuiButton>
-    )
-  }
   return (
-    <MuiButton variant={variant} {...props}>
+    <MuiButton
+      onClick={onClick}
+      disabled={isLoading}
+      size={size}
+      variant={variant}
+      type={type}
+      startIcon={
+        isLoading && <CircularProgress size={iconSize} color={iconColor} />
+      }
+    >
       {children}
     </MuiButton>
   )
