@@ -1,4 +1,4 @@
-import Form from '@/components/Form/Form'
+import { Form } from '@/components'
 import * as S from './styled'
 
 export default function Settings() {

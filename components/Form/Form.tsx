@@ -4,7 +4,7 @@ import useFormHook from '@/hooks/useFormHook'
 import * as S from './styled'
 import { Button, Checkbox, OutlinedInput } from '@/components'
 
-const Form = () => {
+export const Form = () => {
   const { methods, onSubmit } = useFormHook()
   const { handleSubmit, register, watch, reset } = methods
 
@@ -94,5 +94,3 @@ const Form = () => {
     </S.Form>
   )
 }
-
-export default Form
