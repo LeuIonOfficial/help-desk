@@ -1,5 +1,9 @@
-import { Form } from '@/components'
+import { Form, Page } from '@/components'
 
 export default function Settings() {
-  return <Form />
+  return (
+    <Page>
+      <Form />
+    </Page>
+  )
 }

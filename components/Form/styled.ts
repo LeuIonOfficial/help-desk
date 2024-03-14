@@ -6,7 +6,6 @@ export const Form = styled.form`
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   width: 100%;
-  padding: 40px;
 `
 export const Header = styled('div')`
   grid-column: ${({ gridColumn }) => gridColumn || '1/3'};
