@@ -8,8 +8,7 @@ export const Form = () => {
   const { methods, onSubmit } = useFormHook()
   const { handleSubmit, register, watch, reset } = methods
 
-  const watchOAUTH_GOOGLE_ENABLED = watch('OAUTH_GOOGLE_ENABLED')
-  const watchLDAP = watch('LDAP_ENABLED')
+  const { OAUTH_GOOGLE_ENABLED, LDAP_ENABLED } = watch()
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
@@ -45,39 +44,39 @@ export const Form = () => {
       <S.Header>
         <Checkbox
           label="Google Auth Enabled"
-          checked={watchOAUTH_GOOGLE_ENABLED}
+          checked={OAUTH_GOOGLE_ENABLED}
           {...register('OAUTH_GOOGLE_ENABLED')}
         />
       </S.Header>
       <OutlinedInput
         label="Google Client ID:"
         fullWidth
-        disabled={!watchOAUTH_GOOGLE_ENABLED}
+        disabled={!OAUTH_GOOGLE_ENABLED}
         {...register('OAUTH_GOOGLE_CLIENT_ID')}
       />
       <OutlinedInput
         label="OAUTH Google Client Secret"
-        disabled={!watchOAUTH_GOOGLE_ENABLED}
+        disabled={!OAUTH_GOOGLE_ENABLED}
         {...register('OAUTH_GOOGLE_CLIENT_SECRET')}
       />
       <S.Header>LDAP Settings:</S.Header>
       <S.Header>
         <Checkbox
           label="LDAP Enabled"
-          checked={watchLDAP}
+          checked={LDAP_ENABLED}
           {...register('LDAP_ENABLED')}
         />
       </S.Header>
       <OutlinedInput
         label="LDAP URL:"
         fullWidth
-        disabled={!watchLDAP}
+        disabled={!LDAP_ENABLED}
         {...register('LDAP_URL')}
       />
       <OutlinedInput
         label="LDAP Bind DN:"
         fullWidth
-        disabled={!watchLDAP}
+        disabled={!LDAP_ENABLED}
         {...register('LDAP_BIND_DN')}
       />
       <S.Footer gridColumn="1/3">

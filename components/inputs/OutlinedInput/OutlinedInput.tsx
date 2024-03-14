@@ -1,3 +1,4 @@
+'use client'
 import { FormLabel } from '@mui/material'
 import { PropsType } from './types'
 import * as S from './styled'
@@ -6,18 +7,18 @@ import { forwardRef } from 'react'
 export const OutlinedInput = forwardRef(
   (
     {
-      label = '',
-      errorMessage = '',
-      placeholder = '',
+      label,
+      errorMessage,
+      placeholder,
       fullWidth = false,
       gridRow,
       size = 'small',
       type = 'text',
       name,
-      onChange,
-      onBlur,
       value,
       disabled,
+      onChange,
+      onBlur,
     }: PropsType,
     ref
   ) => {
