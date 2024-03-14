@@ -1,18 +1,18 @@
 import { useForm } from 'react-hook-form'
-import { mockData } from '@/mock'
+import { staticData } from '@mock'
 
 type ObjectType = Record<string, string | boolean>
 
-const getInitialValues = (object: {}) => {
-  return Object.keys(object).reduce((acc, key) => {
-    const value = object[key]
-    if (value === 'true' || value === 'false') {
-      acc[key] = value === 'true'
-    } else {
-      acc[key] = value
-    }
-    return acc
-  }, {})
+const getInitialValues = ({
+  OAUTH_GOOGLE_ENABLED,
+  LDAP_ENABLED,
+  ...rest
+}: typeof staticData) => {
+  return {
+    ...rest,
+    OAUTH_GOOGLE_ENABLED: OAUTH_GOOGLE_ENABLED === 'true',
+    LDAP_ENABLED: LDAP_ENABLED === 'true',
+  }
 }
 
 const getDiffValues = (obj1: ObjectType, obj2: ObjectType) => {
@@ -26,8 +26,8 @@ const getDiffValues = (obj1: ObjectType, obj2: ObjectType) => {
 }
 
 const useFormHook = () => {
-  const methods = useForm({
-    defaultValues: getInitialValues(mockData),
+  const { reset, register, watch, handleSubmit } = useForm({
+    defaultValues: getInitialValues(staticData),
   })
   const onSubmit = (data: Record<string, string | boolean>) => {
     const result = getDiffValues(
@@ -36,12 +36,12 @@ const useFormHook = () => {
         OAUTH_GOOGLE_ENABLED: data.OAUTH_GOOGLE_ENABLED.toString(),
         LDAP_ENABLED: data.LDAP_ENABLED.toString(),
       },
-      mockData
+      staticData
     )
     console.log(result)
   }
 
-  return { methods, onSubmit }
+  return { reset, register, watch, handleSubmit: handleSubmit(onSubmit) }
 }
 
 export default useFormHook

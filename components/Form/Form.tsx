@@ -1,17 +1,15 @@
 'use client'
-import useFormHook from '@/hooks/useFormHook'
+import useFormHook from '@hooks/useFormHook'
 
 import * as S from './styled'
-import { Button, Checkbox, OutlinedInput } from '@/components'
+import { Button, Checkbox, OutlinedInput } from '@components'
 
 export const Form = () => {
-  const { methods, onSubmit } = useFormHook()
-  const { handleSubmit, register, watch, reset } = methods
-
+  const { watch, reset, register, handleSubmit } = useFormHook()
   const { OAUTH_GOOGLE_ENABLED, LDAP_ENABLED } = watch()
 
   return (
-    <S.Form onSubmit={handleSubmit(onSubmit)}>
+    <S.Form onSubmit={handleSubmit}>
       <OutlinedInput
         label="Application URL"
         fullWidth
@@ -81,12 +79,7 @@ export const Form = () => {
       />
       <S.Footer gridColumn="1/3">
         <Button type="submit">Save Changes</Button>
-        <Button
-          type="button"
-          variant="outlined"
-          color="primary"
-          onClick={() => reset()}
-        >
+        <Button type="button" variant="outlined" onClick={() => reset()}>
           Reset
         </Button>
       </S.Footer>

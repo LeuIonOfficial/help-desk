@@ -2,10 +2,11 @@ import { OutlinedInputProps } from '@mui/material'
 import { ChangeEvent, FocusEvent } from 'react'
 
 export type StyledProps = {
-  gridRow?: string
+  $gridRow?: string
 }
 
-export type PropsType = StyledProps & {
+export type PropsType = {
+  gridRow?: string
   label?: string
   name: string
   /**

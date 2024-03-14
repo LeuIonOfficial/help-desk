@@ -7,9 +7,10 @@ import {
 import styled from '@emotion/styled'
 import { StyledProps } from './types'
 
-export const FormControl = styled(MuiFormControl)(
-  ({ gridRow }: StyledProps) => ({
-    'grid-row': gridRow,
+export const FormControl = styled(MuiFormControl, {shouldForwardProp: prop => !['$gridRow'].includes(prop)}
+)(
+  ({ $gridRow }: StyledProps) => ({
+    'grid-row': $gridRow,
   })
 )
 

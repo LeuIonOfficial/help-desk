@@ -1,4 +1,4 @@
-export const mockData = {
+export const staticData = {
   APP_URL: 'http://localhost:8000',
   OAUTH_GOOGLE_ENABLED: 'true',
   OAUTH_GOOGLE_CLIENT_ID:

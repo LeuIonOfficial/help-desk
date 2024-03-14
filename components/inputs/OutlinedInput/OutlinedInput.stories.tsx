@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { action } from '@storybook/addon-actions'
 import { OutlinedInput } from '.'
-import { PropsType } from '@/components/inputs/OutlinedInput/types'
+import { PropsType } from '@components/inputs/OutlinedInput/types'
 
 const meta: Meta<typeof OutlinedInput> = {
   title: 'Components/Inputs/OutlinedInput',
@@ -28,12 +28,10 @@ export const Variants: Story = {
       <div style={renderBox('row')}>
         <OutlinedInput size="small" name="small" />
         <OutlinedInput size="medium" name="medium" />
-        <OutlinedInput size="large" name="large" />
       </div>
       <div style={renderBox('row')}>
         <OutlinedInput size="small" name="small" label="Input with label" />
         <OutlinedInput size="medium" name="medium" label="Input with label" />
-        <OutlinedInput size="large" name="large" label="Input with label" />
       </div>
       <div style={renderBox('row')}>
         <OutlinedInput
@@ -45,12 +43,6 @@ export const Variants: Story = {
         <OutlinedInput
           size="medium"
           name="medium"
-          label="Input with label"
-          errorMessage="And error message"
-        />
-        <OutlinedInput
-          size="large"
-          name="large"
           label="Input with label"
           errorMessage="And error message"
         />
