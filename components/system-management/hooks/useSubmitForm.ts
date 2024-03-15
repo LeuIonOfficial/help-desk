@@ -1,18 +1,13 @@
-import { staticData } from "@mock"
-import { getDiffValues } from "../utils"
+import { staticData } from '@mock'
+import { getDiffValues } from '../utils'
+import { mapValues } from 'lodash'
 
 export const useSubmitForm = () => {
-    const onSubmit = (data: Record<string, string | boolean | number>) => {
-        const result = getDiffValues(
-          {
-            ...data,
-            OAUTH_GOOGLE_ENABLED: data.OAUTH_GOOGLE_ENABLED.toString(),
-            LDAP_ENABLED: data.LDAP_ENABLED.toString(),
-          },
-          staticData
-        )
-        console.log(result)
-      }
+  const onSubmit = (data: Record<string, string | boolean | number>) => {
+    const convertedData = mapValues(data, (value) => value.toString())
 
-      return {onSubmit}
+    const result = getDiffValues(convertedData, staticData)
+    console.log(result)
+  }
+  return { onSubmit }
 }

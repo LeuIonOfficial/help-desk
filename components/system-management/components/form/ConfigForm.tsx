@@ -24,7 +24,7 @@ export const ConfigForm = () => {
       ></OutlinedInput>
       <OutlinedInput
         {...register('REFRESH_SECRET_TTL')}
-        errorMessage={errors.JWT_SECRET_TTL?.message}
+        errorMessage={errors.REFRESH_SECRET_TTL?.message}
         label="Refresh Secret TTL:"
         fullWidth
         type="number"

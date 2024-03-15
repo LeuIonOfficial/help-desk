@@ -7,7 +7,7 @@ export const staticData = {
   JWT_SECRET: 'JwtSecret',
   JWT_SECRET_TTL: '86400',
   REFRESH_SECRET: 'refreshSecret',
-  REFRESH_SECRET_TTL: '7d',
+  REFRESH_SECRET_TTL: '17d',
   HASH_SECRET: 'hashSecret',
   LDAP_ENABLED: 'false',
   LDAP_URL: '',
