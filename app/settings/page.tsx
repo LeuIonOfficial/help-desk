@@ -1,9 +1,23 @@
-import { Form, Page } from '@/components'
+import { Layout, ConfigForm } from '@components'
 
-export default function Settings() {
+const staticState = {
+  isLoading: false,
+  data: true,
+  isFetching: false,
+}
+
+const Settings = () => {
+  if (staticState.isFetching || staticState.isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (!staticState.data) return <div>No data to display...</div>
+
   return (
-    <Page>
-      <Form />
-    </Page>
+    <Layout>
+      <ConfigForm />
+    </Layout>
   )
 }
+
+export default Settings

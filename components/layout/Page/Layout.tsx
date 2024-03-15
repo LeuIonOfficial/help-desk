@@ -2,4 +2,4 @@
 import { Props } from './types'
 import * as S from './styled'
 
-export const Page = ({ children }: Props) => <S.Page>{children}</S.Page>
+export const Layout = ({ children }: Props) => <S.Page>{children}</S.Page>
