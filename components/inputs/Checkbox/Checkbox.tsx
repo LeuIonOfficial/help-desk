@@ -14,22 +14,25 @@ export const Checkbox = forwardRef(
       checked,
     }: PropsType,
     ref
-  ) => (
-    <FormControlLabel
-      control={
-        <MuiCheckbox
-          value={value}
-          size={size}
-          disabled={disabled}
-          onChange={onChange}
-          checked={checked}
-        />
-      }
-      label={label}
-      name={name}
-      ref={ref}
-    />
-  )
+  ) => {
+    console.log('Checkbox', value)
+    return (
+      <FormControlLabel
+        control={
+          <MuiCheckbox
+            value={value}
+            size={size}
+            disabled={disabled}
+            onChange={onChange}
+            checked={checked}
+          />
+        }
+        label={label}
+        name={name}
+        ref={ref}
+      />
+    )
+  }
 )
 
 Checkbox.displayName = 'Checkbox'

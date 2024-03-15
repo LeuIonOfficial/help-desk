@@ -20,23 +20,25 @@ const Input = (
     onBlur,
   }: PropsType,
   ref: Ref<HTMLInputElement>
-) => (
-  <S.FormControl fullWidth={fullWidth} $gridRow={gridRow}>
-    {label && <FormLabel>{label}</FormLabel>}
-    <S.OutlinedInput
-      ref={ref}
-      placeholder={placeholder}
-      value={value}
-      size={size}
-      error={!!errorMessage}
-      type={type}
-      name={name}
-      onChange={onChange}
-      onBlur={onBlur}
-      disabled={disabled}
-    />
-    {errorMessage && <S.ErrorMsg>{errorMessage}</S.ErrorMsg>}
-  </S.FormControl>
-)
+) => {
+  return (
+    <S.FormControl fullWidth={fullWidth} $gridRow={gridRow}>
+      {label && <FormLabel>{label}</FormLabel>}
+      <S.OutlinedInput
+        ref={ref}
+        placeholder={placeholder}
+        value={value}
+        size={size}
+        error={!!errorMessage}
+        type={type}
+        name={name}
+        onChange={onChange}
+        onBlur={onBlur}
+        disabled={disabled}
+      />
+      {errorMessage && <S.ErrorMsg>{errorMessage}</S.ErrorMsg>}
+    </S.FormControl>
+  )
+}
 
 export const OutlinedInput = forwardRef(Input)

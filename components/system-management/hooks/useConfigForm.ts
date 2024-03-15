@@ -4,15 +4,11 @@ import { staticData } from '@mock'
 import { getInitialValues } from '../utils'
 import { useSubmitForm } from './useSubmitForm'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { isDirty } from 'zod'
 
 export const useConfigForm = () => {
-  const {
-    reset,
-    register,
-    watch,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { reset, register, watch, handleSubmit, formState, ...rest } = useForm({
+    mode: 'all',
     defaultValues: getInitialValues(staticData),
     resolver: zodResolver(ConfigSchema),
   })
@@ -23,6 +19,7 @@ export const useConfigForm = () => {
     register,
     watch,
     handleSubmit: handleSubmit(onSubmit),
-    errors,
+    formState,
+    ...rest,
   }
 }

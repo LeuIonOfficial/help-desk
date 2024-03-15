@@ -1,7 +1,8 @@
 import { staticData } from '@mock'
+import { mapValues } from 'lodash'
 import { z } from 'zod'
 
-type ObjectType = Record<string, string>
+type ObjectType = Record<string, string | boolean | number>
 
 export const getInitialValues = (data: typeof staticData) => {
   return {
@@ -13,17 +14,25 @@ export const getInitialValues = (data: typeof staticData) => {
   }
 }
 
-export const getDiffValues = (
-  obj1: ObjectType,
-  defaultValuesObject: ObjectType
+export const getDifferentValues = (
+  updatedObject: ObjectType,
+  defaultObject: ObjectType
 ) => {
-  return Object.keys(defaultValuesObject).reduce((difference, key) => {
-    if (obj1[key] === defaultValuesObject[key]) return difference
-    return {
-      ...difference,
-      [key]: obj1[key],
+  const values = {} as ObjectType
+  mapValues(updatedObject, (value, key) => {
+    if (value === defaultObject[key]) return
+    values[key] = value
+  })
+  return values
+}
+
+export const convertToBackendFormat = (data: ObjectType) => {
+  return mapValues(data, (value, key) => {
+    if (key === 'REFRESH_SECRET_TTL') {
+      return `${value.toString()}d`
     }
-  }, {})
+    return value.toString()
+  })
 }
 
 export const ConfigSchema = z.object({

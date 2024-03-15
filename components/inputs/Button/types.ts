@@ -37,5 +37,11 @@ export type Props = {
   iconColor?: 'primary' | 'secondary' | 'inherit'
 } & Pick<
   ButtonProps,
-  'className' | 'children' | 'onClick' | 'variant' | 'size' | 'type'
+  | 'className'
+  | 'children'
+  | 'onClick'
+  | 'variant'
+  | 'size'
+  | 'type'
+  | 'disabled'
 >

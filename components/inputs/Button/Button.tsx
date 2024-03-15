@@ -8,13 +8,14 @@ export const Button = ({
   isLoading = false,
   iconSize = 24,
   iconColor = 'inherit',
+  disabled = false,
   onClick,
   type = 'button',
 }: Props) => {
   return (
     <MuiButton
       onClick={onClick}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       size={size}
       variant={variant}
       type={type}
