@@ -107,7 +107,9 @@ export const ConfigForm = () => {
           Reset
         </Button>
       </S.Footer>
-      <DevTool control={control} /> {/* set up the dev tool */}
+      {process.env.NODE_ENV === 'development' && control && (
+        <DevTool control={control} />
+      )}
     </S.Form>
   )
 }

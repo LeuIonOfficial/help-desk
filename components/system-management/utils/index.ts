@@ -1,8 +1,9 @@
 import { staticData } from '@mock'
-import { mapValues } from 'lodash'
+import { mapValues, pickBy } from 'lodash'
 import { z } from 'zod'
 
-type ObjectType = Record<string, string | boolean | number>
+type FormData = Record<string, string | boolean | number>
+type StaticData = Record<string, string>
 
 export const getInitialValues = (data: typeof staticData) => {
   return {
@@ -15,18 +16,13 @@ export const getInitialValues = (data: typeof staticData) => {
 }
 
 export const getDifferentValues = (
-  updatedObject: ObjectType,
-  defaultObject: ObjectType
-) => {
-  const values = {} as ObjectType
-  mapValues(updatedObject, (value, key) => {
-    if (value === defaultObject[key]) return
-    values[key] = value
-  })
-  return values
-}
+  updatedObject: StaticData,
+  defaultObject: StaticData
+) => pickBy(updatedObject, (value, key) => value !== defaultObject[key])
 
-export const convertToBackendFormat = (data: ObjectType) => {
+export const convertToBackendFormat = (
+  data: FormData
+): Record<string, string> => {
   return mapValues(data, (value, key) => {
     if (key === 'REFRESH_SECRET_TTL') {
       return `${value.toString()}d`
