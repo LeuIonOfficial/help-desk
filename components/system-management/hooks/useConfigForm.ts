@@ -5,10 +5,10 @@ import { getInitialValues } from '../utils'
 import { useSubmitForm } from './useSubmitForm'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-export const useConfigForm = () => {
+export const useConfigForm = (data: typeof staticData) => {
   const { reset, register, watch, handleSubmit, formState, ...rest } = useForm({
     mode: 'all',
-    defaultValues: getInitialValues(staticData),
+    defaultValues: getInitialValues(data),
     resolver: zodResolver(ConfigSchema),
   })
   const { onSubmit } = useSubmitForm()

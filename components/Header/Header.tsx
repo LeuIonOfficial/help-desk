@@ -15,8 +15,8 @@ import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
 import { useRouter } from 'next/navigation'
 
-const pages = ['Settings']
-const settings = ['Settings']
+const pages = ['Settings', 'Home']
+const settings = ['Settings', 'Home']
 
 export function Header() {
   const router = useRouter()
@@ -122,6 +122,7 @@ export function Header() {
               color: 'inherit',
               textDecoration: 'none',
             }}
+            onClick={() => router.push('/')}
           >
             LOGO
           </Typography>

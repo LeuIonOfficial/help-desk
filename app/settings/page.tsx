@@ -1,21 +1,18 @@
+'use client'
 import { Layout, ConfigForm } from '@components'
-
-const staticState = {
-  isLoading: false,
-  data: true,
-  isFetching: false,
-}
+import { useGetData } from '@components/system-management/hooks/useGetData'
 
 const Settings = () => {
-  if (staticState.isFetching || staticState.isLoading) {
+  const { data, isLoading } = useGetData()
+  if (isLoading) {
     return <div>Loading...</div>
   }
 
-  if (!staticState.data) return <div>No data to display...</div>
+  if (!data) return <div>No data to display...</div>
 
   return (
     <Layout>
-      <ConfigForm />
+      <ConfigForm data={data} />
     </Layout>
   )
 }
