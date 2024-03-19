@@ -1,4 +1,4 @@
-import { staticData } from '@mock'
+import { staticData } from '../../../mock'
 import { convertToBackendFormat, getDifferentValues, getInitialValues } from '.'
 
 describe('Utils', () => {
