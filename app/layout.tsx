@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import * as S from './styled'
 import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
-import { ToastContainer } from 'react-toastify'
 import { App } from './app'
 
 export default function RootLayout({
@@ -16,7 +15,6 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <App>{children}</App>
         </ThemeProvider>
-        <ToastContainer />
       </S.Body>
     </html>
   )

@@ -1,5 +1,4 @@
 'use client'
-import { useGetData } from '@components/system-management/hooks/useGetData'
 import { useConfigForm } from '../../hooks/useConfigForm'
 
 import * as S from './styled'
@@ -9,8 +8,10 @@ import { staticData } from '@mock'
 export const ConfigForm = ({ data }: { data: typeof staticData }) => {
   const { watch, reset, register, handleSubmit, formState } =
     useConfigForm(data)
+
   const { OAUTH_GOOGLE_ENABLED, LDAP_ENABLED } = watch()
   const { isDirty, errors } = formState
+
   const {
     APP_URL,
     EMAIL_HOST,

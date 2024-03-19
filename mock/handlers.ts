@@ -1,6 +1,5 @@
-'use client'
 import { staticData } from '@mock'
-import { map, mapValues } from 'lodash'
+import { mapValues } from 'lodash'
 import { http, HttpResponse } from 'msw'
 
 export const handlers = [

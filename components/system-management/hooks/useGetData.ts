@@ -1,7 +1,5 @@
-'use client'
 import { worker } from '@mock/browser'
 import { useEffect, useState } from 'react'
-import { json } from 'stream/consumers'
 
 export const useGetData = () => {
   const [isLoading, setIsLoading] = useState(false)
