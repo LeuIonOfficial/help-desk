@@ -20,14 +20,15 @@
         ],
         "baseUrl": "./",
         "paths": {
-            "@*": ["./*"],
+            "@*": ["./src/*"],
             "@components/*": ["components/*"],
             "@hooks/*": ["hooks/*"],
             "@lib/*": ["lib/*"],
             "@pages/*": ["pages/*"],
-            "@mock/*": ["mock/*"],
+            "@mock/*": ["mocks/*"],
+            "@utils/*": ["utils/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "mock/handlers.ts"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/mocks/handlers.ts"],
     "exclude": ["node_modules"]
 }

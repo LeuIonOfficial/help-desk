@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
-import * as S from './styled'
 import { ThemeProvider } from '@mui/material'
-import { theme } from './theme'
+import { theme } from '@utils'
 import { App } from './app'
+import { GlobalStyles } from '@components'
 
 export default function RootLayout({
   children,
@@ -11,11 +11,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <S.Body>
+      <body>
         <ThemeProvider theme={theme}>
+          <GlobalStyles />
           <App>{children}</App>
         </ThemeProvider>
-      </S.Body>
+      </body>
     </html>
   )
 }
