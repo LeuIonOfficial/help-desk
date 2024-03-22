@@ -1,17 +1,15 @@
 import { staticData } from '@mocks'
-import { mapValues } from 'lodash'
-import { http, HttpResponse } from 'msw'
+import { rest } from 'msw'
 
-export const handlers = [
-  http.get('/settings', () => {
-    return HttpResponse.json(staticData)
+export const mockApiHandlers = [
+  rest.get('/settings', (req, res, ctx) => {
+    return res(ctx.json(staticData))
   }),
-  http.patch('/settings', async ({ request }) => {
-    const response = await request.json()
-    const data = JSON.parse(response as string)
-    mapValues(data, (values, keys) => {
-      staticData[keys as keyof typeof staticData] = values
+  rest.patch('/settings', (req, res, ctx) => {
+    const data = JSON.parse(req.body as string)
+    Object.keys(data).forEach((key) => {
+      staticData[key as keyof typeof staticData] = data[key]
     })
-    return HttpResponse.json(staticData)
+    return res(ctx.json(staticData))
   }),
 ]

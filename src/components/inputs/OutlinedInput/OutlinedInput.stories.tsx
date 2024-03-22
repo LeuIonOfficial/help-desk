@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { action } from '@storybook/addon-actions'
 import { OutlinedInput } from '.'
-import { PropsType } from '@src/components/inputs/OutlinedInput/types'
+import type { PropsType } from './types'
 
 const meta: Meta<typeof OutlinedInput> = {
   title: 'Components/Inputs/OutlinedInput',

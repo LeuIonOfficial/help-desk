@@ -8,7 +8,7 @@ export const useGetData = () => {
 
   const query = async () => {
     setIsLoading(true)
-    await worker.start()
+    // await worker.start()
     const response = await fetch('/settings')
     const data = await response.json()
     localStorage.setItem('data', JSON.stringify(data))

@@ -13,10 +13,9 @@ export const Header = styled('div')`
 `
 
 export const Footer = styled('div')`
-  display: grid;
+  display: flex;
   grid-row: ${({ gridRow }: StyledProps) => gridRow};
   grid-column: ${({ gridColumn }: StyledProps) => gridColumn};
   justify-content: flex-end;
-  align-items: center;
   gap: 1rem;
 `
