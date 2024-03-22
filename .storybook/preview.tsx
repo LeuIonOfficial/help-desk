@@ -3,9 +3,7 @@ import { ThemeProvider } from '@emotion/react'
 import { theme } from '../src/utils'
 import { GlobalStyles } from '../src/components'
 import React from 'react'
-import { initialize, mswLoader } from 'msw-storybook-addon'
-
-initialize()
+import { mswLoader } from 'msw-storybook-addon'
 
 const preview: Preview = {
   parameters: {
