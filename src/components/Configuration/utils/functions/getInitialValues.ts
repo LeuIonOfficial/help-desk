@@ -1,5 +1,11 @@
 import { staticData } from '@mocks'
 
+/**
+ * Retrieves the initial values for the configuration data.
+ *
+ * @param data - The configuration data object.
+ * @returns The initial values object with the configuration data.
+ */
 export const getInitialValues = (data: typeof staticData) => {
   return {
     ...data,

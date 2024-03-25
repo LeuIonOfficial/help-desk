@@ -5,6 +5,12 @@ import { getInitialValues } from '../index'
 import { useSubmitForm } from './useSubmitForm'
 import { zodResolver } from '@hookform/resolvers/zod'
 
+/**
+ * Custom hook for managing the configuration form.
+ *
+ * @param data - The initial data used to initialize the form.
+ * @returns An object containing the form methods and state from useForm.
+ */
 export const useConfigForm = (data: typeof staticData) => {
   const { reset, register, watch, handleSubmit, formState, ...rest } = useForm({
     mode: 'all',
