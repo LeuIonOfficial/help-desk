@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { ThemeProvider } from '@mui/material'
-import { theme } from '@utils'
+import { theme } from '@theme'
 import { GlobalStyles, Header } from '@components'
 
 export default function RootLayout({

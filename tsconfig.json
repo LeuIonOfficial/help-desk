@@ -26,7 +26,8 @@
             "@lib/*": ["lib/*"],
             "@pages/*": ["pages/*"],
             "@mock/*": ["mocks/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@theme/*": ["theme/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/mocks/handlers.ts"],

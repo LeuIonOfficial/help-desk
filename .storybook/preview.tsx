@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react'
 import { ThemeProvider } from '@emotion/react'
-import { theme } from '../src/utils'
+import { theme } from '../src/theme'
 import { GlobalStyles } from '../src/components'
 import React from 'react'
 import { mswLoader } from 'msw-storybook-addon'
